@@ -1,4 +1,4 @@
-import 'package:expense_planner/widgets/transaction_list.dart';
+import './widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,14 +34,14 @@ class MyHomePage extends StatelessWidget {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: const Text("Expense planner"),
         ),
-        body: Column(
+        body: const Column(
           children: <Widget>[
-            const Card(
+            Card(
               elevation: 5,
               color: Colors.blue,
               child: SizedBox(width: double.infinity, child: Text("CART!")),
             ),
-            const TransactionList(),
+            UserTransactions()
           ],
         ));
   }
