@@ -15,7 +15,7 @@ class TransactionList extends StatelessWidget {
               return Card(
                   margin:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-                  color: Colors.blue[200],
+                  color: Theme.of(context).primaryColorLight,
                   child: SizedBox(
                       width: double.infinity,
                       height: 70,
