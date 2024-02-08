@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
-        useMaterial3: true,
-        primarySwatch: Colors.amber,
-      ),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+          useMaterial3: true,
+          primarySwatch: Colors.amber,
+          fontFamily: 'Quicksand'),
       home: const MyHomePage(),
     );
   }
@@ -38,19 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
-  final List<Transaction> _userTransactions = [
-    Transaction(
-        amount: 14.00, date: DateTime.now(), id: 't1', title: "12.5kg rice"),
-    Transaction(
-        amount: 20.00, date: DateTime.now(), id: 't2', title: "New shoes"),
-    Transaction(
-        amount: 10.99, date: DateTime.now(), id: 't3', title: "Computer cable"),
-    Transaction(
-        amount: 45.00,
-        date: DateTime.now(),
-        id: 't4',
-        title: "Computer battery"),
-  ];
+  final List<Transaction> _userTransactions = [];
 
   void _addTransaction({required String title, required double amount}) {
     final newTransaction = Transaction(
@@ -92,7 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.blue,
             child: SizedBox(width: double.infinity, child: Text("CART!")),
           ),
-          TransactionList(transactions: _userTransactions)
+          (_userTransactions.isEmpty
+              ? const Center(child: Text("No transaction yet."))
+              : TransactionList(transactions: _userTransactions))
         ],
       ),
       floatingActionButton: FloatingActionButton(
