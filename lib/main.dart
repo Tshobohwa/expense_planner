@@ -81,7 +81,19 @@ class _MyHomePageState extends State<MyHomePage> {
             child: SizedBox(width: double.infinity, child: Text("CART!")),
           ),
           (_userTransactions.isEmpty
-              ? const Center(child: Text("No transaction yet."))
+              ? Column(children: [
+                  const Text(
+                    "No transaction yet.",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 32,
+                  ),
+                  Image.asset(
+                    'assets/images/box.png',
+                    width: 200,
+                  )
+                ])
               : TransactionList(transactions: _userTransactions))
         ],
       ),
